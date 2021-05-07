@@ -1,0 +1,12 @@
+<%= form_with(model: order, local: true) do |form| %> <% if order.errors.any? %>
+<%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:
+<% order.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+<% end %>
+<%= form.label :name %> <%= form.text_field :name, size: 40 %>
+<%= form.label :address %> <%= form.text_area :address, rows: 3, cols: 40 %>
+<%= form.label :email %> <%= form.email_field :email, size: 40 %>
+<%= form.label :pay_type %> <%= form.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method' %>
+<%= form.submit 'Place Order' %>
+<% end %>
