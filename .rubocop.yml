@@ -1,0 +1,38 @@
+Layout/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 1000
+
+# This permits the following syntax:
+#   return render json: {
+#      status: 'Waiting for verification text...',
+#   } if ar.status == :started
+Style/MultilineIfModifier:
+  Enabled: false
+
+# This cop enforces all classes to have a descriptive comment above their declaration:
+Style/Documentation:
+  Enabled: false
+
+# This cop enforces this syntax:
+#   class Api::ThingsControlle
+# Instead of this syntax:
+#   class Api
+#     class ThingsController
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+# We've been leaning towards double quotes instead of single quotes - this cop matches the current tendency in
+# our existing code:
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Making our code frozen-string-literals-friendly would be nice but it's not a priority yet:
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# NumericPredicate checks for >, < or == checks against zero (it requires us to use .zero?, .positive? and .negative?)
+# But why would this be a good idea?
+Style/NumericPredicate:
+  Enabled: false
