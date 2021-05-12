@@ -1,10 +1,11 @@
 version: "3.7"
 
 services:
-  ruby_dev:
+  depot:
     build: .
-    container_name: ${APP_NAME}_container
+    container_name: depot
     ports:
-      - "${PORT}:${PORT}"
+      - "3001"
     volumes:
-      - ./:/home/${APP_NAME}
+      - ./:/home/depot
+    command: /bin/bash -c "echo 'rede' && sleep infinity"
