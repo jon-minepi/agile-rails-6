@@ -77,4 +77,17 @@ Rails.application.configure do
   config.web_console.allowed_ips = %w( 0.0.0.0/0 ::/0 )
 
   config.action_cable.disable_request_forgery_protection = true
+
+  # mail configuration options
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "depot.net",
+    authentication: "plain",
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    enable_starttls_auto: true
+  }
 end
